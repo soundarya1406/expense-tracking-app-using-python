@@ -1,0 +1,28 @@
+<!-- backend/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Sharing App</title>
+</head>
+<body>
+    <h1>Expense Sharing App</h1>
+    
+    <h2>Add New Expense</h2>
+    <form action="/add_expense" method="POST">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description"><br>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount"><br>
+        <button type="submit">Add Expense</button>
+    </form>
+    
+    <h2>Expenses</h2>
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense[1] }}: ${{ expense[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
